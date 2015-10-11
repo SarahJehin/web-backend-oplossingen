@@ -62,8 +62,8 @@ function vind_procent_karakters3($karakter) {
 <body>
    
    <p>2 komt voor <?= vind_procent_karakters1("2", $md5HashKey) ?>% voor in de string.</p>
-   <p>8 komt voor <?= vind_procent_karakters2("8", $md5HashKey) ?>% voor in de string.</p>
-   <p>a komt voor <?= vind_procent_karakters3("a", $md5HashKey) ?>% voor in de string.</p>
+   <p>8 komt voor <?= vind_procent_karakters2("8") ?>% voor in de string.</p>
+   <p>a komt voor <?= vind_procent_karakters3("a") ?>% voor in de string.</p>
     
 </body>
 </html>
