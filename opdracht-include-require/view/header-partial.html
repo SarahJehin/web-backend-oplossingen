@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Artikels</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Calibri", sans-serif;
+        }
+        
+        header {
+            background-color: #222;
+            color: #fff;
+        }
+        
+        header p {
+            font-size: 2em;
+            margin: 0;
+        }
+        
+        .wrapper {
+            width: 1575px;
+            margin: 0 auto;
+        }
+        
+        .wrapper h3 {
+            font-size: 2em;
+            border-bottom: 1px #ddd solid;
+        }        
+        
+        .article {
+            background-color: #ddd;
+            width: 500px;
+            margin-right: 25px;
+            float: left;
+        }
+        
+        .articles::before, .articles::after {
+            line-height: 0;
+            display: table;
+            content: "";
+        }
+        
+        .articles::after {
+            clear: both;
+        }
+        
+        footer {
+            background-color: #299;
+            text-align: center;
+            color: #fff;
+        }
+        
+    </style>
+</head>
+<body>
+   
+   <header>
+       <p>Dit is de header: Daily PHP</p>
+   </header>
+    

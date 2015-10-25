@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+   
+
+   <div class="wrapper">
+    
+    <h3>Nieuws</h3>
+    
+    <div class="articles">
+        
+        <?php foreach($articles as $key => $value): ?>
+        <div class="article">
+            <h2><?= $value["title"] ?></h2>
+            <p><?= $value["text"] ?></p>
+            <div><span>Kernwoorden: </span><?php for($id = 0; $id < count($value["tags"]); $id++): ?>
+            <span><?= $value["tags"][$id].", " ?></span>
+            <?php endfor ?></div>
+        </div>
+        <?php endforeach ?>
+        
+    </div>
+    
+    
+</div>
