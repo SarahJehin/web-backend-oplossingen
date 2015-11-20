@@ -1,0 +1,70 @@
+body {
+    font-family: sans-serif;
+    color: #454545;
+}
+
+
+ul {
+    list-style: none;
+}
+
+
+[name="toggleToDo"],
+[name="toggleToDo"].done:hover {
+    position: relative;
+    border: 0;
+    background-color: transparent;
+    margin: 0;
+    font-size: 20px;
+    padding: 0 0 0 22px;
+    cursor: pointer;
+    outline-width: 0;
+    text-decoration: none;
+}
+
+
+[name="toggleToDo"]:before,
+[name="toggleToDo"].done:hover[name="toggleToDo"]:before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    display: block;
+    background-color: lightgrey;
+    border-radius: 50%;
+    box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.08);
+}
+
+
+[name="toggleToDo"]:hover,
+[name="toggleToDo"].done {
+    text-decoration: line-through;
+}
+
+[name="toggleToDo"]:hover[name="toggleToDo"]:before,
+[name="toggleToDo"].done[name="toggleToDo"]:before {
+    background-color: #0f0;
+}
+
+
+[name="deleteToDo"] {
+    width: 18px;
+    height: 18px;
+    border: 0;
+    border-radius: 50%;
+    background-color: #f00;
+    color: #fff;
+    position: relative;
+    top: -3px;
+    cursor: pointer;
+    padding: 1px;
+    padding-left: 2px;
+}
+
+
+input[type="submit"] {
+    margin-top: 10px;
+}
+
