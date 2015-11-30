@@ -3,7 +3,7 @@
 
 $messageContainer = "";
 static $count = 1;
-
+$arrBeerRowsExists = false;
 
 try {
     
@@ -37,6 +37,7 @@ try {
     //gaan kijken of het form gesubmit is //als er geklikt wordt, moet je ook de geselecteerde value laten staan (http://www.w3schools.com/tags/att_option_selected.asp)
     if(isset($_GET["submit"])) {
         //echo "yay";
+        $arrBeerRowsExists = true;
         //gaan kijken of er een brouwer geselecteerd is
         if(isset($_GET["brouwer"])) {
             //echo "yayay";
@@ -159,8 +160,12 @@ catch ( PDOException $e )
         </select>-->
         
         <select name="brouwer">
+            <option value="empty">Kies een brouwerij...</option>
             <?php foreach($arrTableRows as $row) : ?>
-            <option value="<?= $row["brouwernr"] ?>" <?php if( $brouwernummer == $row['brouwernr'] ) { echo 'selected';} ?>><?= $row["brnaam"] ?></option>
+            <option value="<?= $row["brouwernr"] ?>" <?php if($arrBeerRowsExists) : ?>
+                <?php if( $brouwernummer == $row['brouwernr'] ) { echo 'selected';} ?>
+                <?php endif ?>><?= $row["brnaam"] ?>
+            </option>
             <?php endforeach ?>
         </select>
         
@@ -168,7 +173,7 @@ catch ( PDOException $e )
         
     </form>
     
-    
+    <?php if($arrBeerRowsExists) : ?>
     <table>
         
         <thead>
@@ -192,7 +197,7 @@ catch ( PDOException $e )
         
         
     </table>
-    
+    <?php endif ?>
     
 </body>
 </html>
