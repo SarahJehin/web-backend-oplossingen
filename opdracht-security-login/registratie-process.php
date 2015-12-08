@@ -10,7 +10,8 @@ if(isset($_POST["generate_password"])) {
     
     //eerste kijken of er al een e-mail adres ingevuld is, indien ja --> bijhouden in e-mail session
     if(isset($_POST["email"])) {
-        $_SESSION["email"] = $_POST["email"];
+        //Alle data escapen om js-injection tegen te gaan: http://php.net/manual/en/function.htmlspecialchars.php
+        $_SESSION["email"] = htmlspecialchars($_POST["email"], ENT_QUOTES);
     }
     //random paswoord gaan aanmaken
     //generate_password(length, smallabc, capsABC, numbers, specials)
@@ -27,7 +28,7 @@ if(isset($_POST["submit"])) {
     //geldigheid e-mail adres nakijken (ongeldig --> redirecten naar registratie-form + gepaste boodschap) http://php.net/manual/en/filter.examples.validation.php
     if(isset($_POST["email"])) {
         if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) && $_POST["email"] != "" ) {
-            $_SESSION["email"] = $_POST["email"];
+            $_SESSION["email"] = htmlspecialchars($_POST["email"], ENT_QUOTES);
             //echo("valid e-mail");
             
             try {
@@ -42,7 +43,7 @@ if(isset($_POST["submit"])) {
                 $statement_email_exists = $db->prepare($query_email_exists);
 
                 //de placeholder de juiste waarde geven
-                $statement_email_exists->bindValue(":email", $_POST["email"]);
+                $statement_email_exists->bindValue(":email", $_SESSION["email"]);
 
                 //statement uitvoeren
                 $statement_email_exists->execute();
@@ -65,9 +66,12 @@ if(isset($_POST["submit"])) {
                     //willekeurige salt creëren
                     $salt = uniqid(mt_rand(), true);
                     //echo($salt);
+                    
+                    //password gaan ophalen:
+                    $user_password = htmlspecialchars($_POST["password"], ENT_QUOTES);
 
                     //salt concateneren met ingevulde password
-                    $salted_password = $salt.$_POST["password"];
+                    $salted_password = $salt.$user_password;
 
                     //SHA512-hash dit salted password
                     $hashed_salted_password = hash("sha512", $salted_password);
@@ -75,7 +79,7 @@ if(isset($_POST["submit"])) {
                     $statement_insert_user = $db->prepare($query_insert_user);
 
                     //de placeholders hun waarde gaan toekennen
-                    $statement_insert_user->bindValue(":email", $_POST["email"]);
+                    $statement_insert_user->bindValue(":email", $_SESSION["email"]);
                     $statement_insert_user->bindValue(":salt", $salt);
                     $statement_insert_user->bindValue(":hashed_password", $hashed_salted_password);
 

@@ -8,9 +8,10 @@ unset($_SESSION["message"]);
 
 if(isset($_POST["submit"])) {
     
-    $_SESSION["email"] = $_POST["email"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
+    //alle data escapen om js-injection tegen te gaan: http://php.net/manual/en/function.htmlspecialchars.php
+    $_SESSION["email"] = htmlspecialchars($_POST["email"], ENT_QUOTES);
+    $email = htmlspecialchars($_POST["email"], ENT_QUOTES);
+    $password = htmlspecialchars($_POST["password"], ENT_QUOTES);
     
     
     try {
@@ -25,7 +26,7 @@ if(isset($_POST["submit"])) {
         $statement_select_user = $db->prepare($query_select_user);
         
         //de placeholder de juiste waarde geven
-        $statement_select_user->bindValue(":email", $_POST["email"]);
+        $statement_select_user->bindValue(":email", $_SESSION["email"]);
         
         //statement uitvoeren
         $statement_select_user->execute();
