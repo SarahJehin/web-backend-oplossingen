@@ -1,0 +1,73 @@
+body {
+    font-family: "Calibri", sans-serif;
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+}
+
+nav ul li {
+    float: left;
+    padding: 0px 10px;
+    border-right: 1px #000 solid;
+}
+        
+h1 {
+    border-bottom: 1px #ccc solid;
+}
+
+.messages {
+    background-color: #fcc;
+    color: #d55;
+    border-radius: 5px;
+}
+        
+.messages p {
+    padding: 2px 5px;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+    
+form label {
+    display: block;
+}
+
+label img {
+    display: block;
+    max-width: 400px;
+    height: auto;
+}
+
+input[type="file"] {
+    margin-top: 5px;
+}
+        
+input[type="submit"] {
+    margin-top: 20px;
+}
+
+p a {
+    color: inherit;
+}
+    
+p a:hover {
+    text-decoration: none;
+}
+
+
+        
+/* CLEARFIX */
+ul::before, ul::after {
+    content: "";
+    line-height: 0;
+    display: table;
+}
+
+ul::after {
+    clear:both;
+}
+
+
