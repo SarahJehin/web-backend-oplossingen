@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteRule ^$ artikel-overzicht.php
+RewriteRule ^toevoegen$ artikel-toevoegen-form.php
+RewriteRule ^toevoegen/confirm$ artikel-toevoegen.php
+RewriteRule ^zoeken$ artikel-zoeken-redirect.php
+RewriteRule ^zoeken/kernwoord/([^/\.]+)/?$ artikel-zoeken-redirect.php?kernwoord=$1
+RewriteRule ^zoeken/datum/([^/\.]+)/?$ artikel-zoeken-redirect.php?datum=$1

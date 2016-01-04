@@ -35,8 +35,11 @@
 
 session_start();
 
-
-if(isset($_POST["submit"])) {
+//if isset($_POSt("submit") gaat hier niet werken omdat deze niet wordt meegegeven als data (email en message wel)
+//if(isset($_POST["submit"])) {
+    
+if(isset($_POST["email"])) {
+    
     //echo("yay");
     
     if($_POST["email"] == "" || $_POST["message"] == "") {

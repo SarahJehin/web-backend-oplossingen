@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule ^admin/sarah$ original.php?role=admin&user=sarah
+RewriteRule ^([^/\.]+)/([^/\.]+)/?$ original.php?role=$1&user=$2

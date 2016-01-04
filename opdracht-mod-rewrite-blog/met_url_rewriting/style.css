@@ -1,0 +1,59 @@
+body {
+    font-family: "Calibri", sans-serif;
+    font-size: 100%;
+}
+
+h1 {
+    border-bottom: 1px #999 solid;
+}
+
+
+
+h1+a {
+    color: #000;
+}
+
+form div label,
+form div input,
+form div textarea {
+    display: block;
+}
+
+form div {
+    margin-top: 10px;
+}
+
+form div input,
+form div textarea {
+    font-family: inherit;
+    font-size: inherit;
+    padding: 2px 5px;
+}
+
+form div + input[type="submit"] {
+    margin-top: 15px;
+}
+
+
+
+.zoeken_kernwoord label,
+.zoeken_datum label {
+    display: block;
+}
+
+.zoeken_datum {
+    margin-top: 20px;
+}
+
+
+article {
+    border-bottom: 1px #ddd solid;
+}
+
+
+
+
+/* *** C L E A R F I X *** */
+
+
+
