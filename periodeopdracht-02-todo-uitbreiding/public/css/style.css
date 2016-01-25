@@ -1,0 +1,65 @@
+tbody tr td:first-child {
+    width: 20px;
+}
+
+tbody tr td:first-child form {
+    width: 20px;
+    margin: 0;
+}
+
+
+tbody tr td:nth-child(2) {
+    width: 90%;
+}
+
+tbody tr td:nth-child(3) button {
+    color: #fff;
+    background-color: #ce5353;
+    border: 1px solid #511;
+    border-radius: 5px;
+}
+
+tbody tr td:nth-child(3) button:hover {
+    background-color: #822;
+}
+
+
+.status_btn {
+    color: #fff;
+    background-color: #6c6c6c;
+    padding: 2px 6px;
+    border: none;
+    border-radius: 50%;
+}
+
+/* als je over de status van todo's hovert en de standaard achtergrondkleur van de done's */
+.status_btn.not_done:hover,
+.status_btn.done {
+    background-color: #5ea807;
+}
+
+/* als je over de status van done's hovert en de standaard achtergrondkleur van de todo's */
+.status_btn.done:hover,
+.status_btn.not_done {
+    background-color: #6c6c6c;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.td_status_btn.not_done:hover + td {
+    text-decoration: line-through;
+}
+
+
+.td_status_btn.done:hover + td {
+    text-decoration: none;
+}
+
+
+
+
+
+
+
